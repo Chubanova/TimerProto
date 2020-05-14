@@ -1,6 +1,6 @@
-#Timer project
+# Timer project
 
-###How to start
+### How to start
 run 
  `$ gradle clean build`
  
