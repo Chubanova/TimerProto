@@ -12,14 +12,14 @@ import "google/protobuf/timestamp.proto";
 service TimerService {
     rpc addTimes (AddTimes) returns (Response);
     rpc startTimer (StartTimer) returns (Response);
-    rpc watchStatisticFilter (WatchStatisticFilter) returns (Statictic);
+    rpc watchStatisticFilter (WatchStatisticFilter) returns (Statistics);
 
 }
 
 message AddTimes {
     google.protobuf.Timestamp time = 1;
     string project = 2;
-    string type = 3;
+    string subProject = 3;
 
 }
 
@@ -27,7 +27,7 @@ message Response {
     string status = 1;
     google.protobuf.Timestamp allTime = 2;
     string project = 3;
-    string type = 4;
+    string subProject = 4;
 }
 
 message StartTimer {
@@ -37,7 +37,7 @@ message StartTimer {
     }
     Timer starter = 1;
     string project = 2;
-    string type = 3;
+    string subProject = 3;
 }
 
 
@@ -59,12 +59,12 @@ message WatchStatisticFilter {
     Project projects = 2;
 
     repeated string project = 3;
-    repeated string type = 4;
+    repeated string subProject = 4;
 
     google.protobuf.Timestamp since = 5;
     google.protobuf.Timestamp for = 6;
 }
 
-message Statictic {
+message Statistics {
     repeated Response response = 1;
 }
